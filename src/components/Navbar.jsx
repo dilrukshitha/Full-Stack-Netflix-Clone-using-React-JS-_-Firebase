@@ -20,7 +20,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 text-slate-200 text-xs xsm:text-sm sm:text-base font-poppins flex justify-between items-center max-w-[1280px] mx-auto p-4 sm:p-8">
+    <nav className="fixed z-10 nav-gradient-bg top-0 left-0 right-0 text-slate-200 text-xs xsm:text-sm sm:text-base flex justify-between items-center max-w-[1280px] mx-auto p-4 sm:p-8">
       <div className="relative flex justify-start items-center pr-8">
         <div className="w-20 xsm:w-24 sm:w-32 pr-3 xsm:pr-5 sm:pr-8">
           <img src={logo} alt="Logo" />
@@ -41,19 +41,19 @@ export default function Navbar() {
                   <a className="nav-link" href="">
                     Home
                   </a>
-                  <a className="nav-link py-1 sm:py-2" href="">
+                  <a className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2" href="">
                     TV Shows
                   </a>
-                  <a className="nav-link py-1 sm:py-2" href="">
+                  <a className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2" href="">
                     Movies
                   </a>
-                  <a className="nav-link py-1 sm:py-2" href="">
+                  <a className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2" href="">
                     New & Popular
                   </a>
-                  <a className="nav-link py-1 sm:py-2" href="">
+                  <a className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2" href="">
                     My List
                   </a>
-                  <a className="nav-link py-1 sm:py-2" href="">
+                  <a className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2" href="">
                     Browse by Languages
                   </a>
                 </div>
@@ -106,17 +106,17 @@ export default function Navbar() {
         </a>
         <div className="relative">
           <a className="block nav-link" href="">
-            <img src={profile_img} onClick={toggleUserControl} alt="Profile" className="w-4 sm:w-6 py-1 sm:py-2" />
+            <img src={profile_img} onClick={toggleUserControl} alt="Profile" className="w-4 sm:w-6 py-0.25 py-0.25 lg:py-1 xl:py-2" />
           </a>
           {userControlOpen ? (<div className="absolute w-max bg-slate-800 right-0 top-full flex flex-col justify-start items-end">
             <a
               href=""
-              className="flex justify-end items-center hover:scale-110 py-1 sm:py-2 pl-1 xsm:pl-2 sm:pl-4"
+              className="flex justify-end items-center hover:scale-110 py-0.25 py-0.25 lg:py-1 xl:py-2 pl-1 xsm:pl-2 sm:pl-4"
             >
               <img src={setting_icon} alt="" className="w-3 sm:w-4" />
               <p className="nav-link">Settings</p>
             </a>
-            <a href="" className="nav-link py-1 sm:py-2">
+            <a href="" className="nav-link py-0.25 py-0.25 lg:py-1 xl:py-2">
               Log Out
             </a>
           </div>) : null}
