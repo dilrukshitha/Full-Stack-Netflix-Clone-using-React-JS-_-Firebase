@@ -15,7 +15,7 @@ export default function Home() {
     <div>
       <Navbar />
       <div className="relative">
-        <img src={hero_banner} alt="" className="w-full banner-img-gradient" />
+        <img src={hero_banner} alt="" className="w-full banner-img-gradient opacity-60" />
         <div className="absolute bottom-0 w-full pl-[4%] text-sm sm:text-base">
           <img
             src={hero_title}
@@ -37,20 +37,18 @@ export default function Home() {
               <span className="text-white ml-2">More Info</span>
             </button>
           </div>
-          {isLgScreen && <TitleCards title={"Popular on Netflix"} />}{" "}
-          {/* Render only on larger screens */}
+          {isLgScreen && <TitleCards title={"Popular on Netflix"} category={"popular"}/>}{" "}
         </div>
       </div>
 
       <div className="pl-[4%] py-[2%]">
-        {!isLgScreen && <TitleCards title={"Popular on Netflix"} />}{" "}
-        {/* Render only on smaller screens */}
-        <TitleCards title={"Blockbuster Movies"} />
-        <TitleCards title={"Only on Netflix"} />
-        <TitleCards title={"Upcoming"} />
-        <TitleCards title={"Top Picks for you"} />
+        {!isLgScreen && <TitleCards title={"Popular on Netflix"} category={"popular"} />}{" "}
+        <TitleCards title={"Blockbuster Movies"} category={"top_rated"} />
+        <TitleCards title={"Only on Netflix"} category={"popular"} />
+        <TitleCards title={"Upcoming"} category={"upcoming"} />
+        <TitleCards title={"Top Picks for you"} category={"now_playing"} />
       </div>
-      
+
       <Footer />
     </div>
   );

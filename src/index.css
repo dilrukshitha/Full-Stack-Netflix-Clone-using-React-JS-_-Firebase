@@ -1,4 +1,8 @@
 /* index.css */
+body {
+  background-color: #121212;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -18,10 +22,9 @@
   -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
 
-.nav-gradient-bg {
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0) 70%);
+.nav-scrolled {
+  background: #141414;
 }
-
 
 .scrollbar-hide {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
