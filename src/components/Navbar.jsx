@@ -7,19 +7,29 @@ import profile_img from "../assets/profile_img.png";
 import caret_icon from "../assets/caret_icon.svg";
 import caret_up from "../assets/caret_up.svg";
 import setting_icon from "../assets/gear_icon.svg";
+import {logout} from '../firebase'
 
 export default function Navbar() {
 
-  const navRef = useRef();
-  useEffect(()=>{
-    window.addEventListener("scroll",()=>{
-      if(window.scrollY > 80){
-        navRef.current.classList.add("nav-scrolled");
-      }else{
-        navRef.current.classList.remove("nav-scrolled");
+  const navRef = useRef(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navRef.current) {
+        if (window.scrollY > 80) {
+          navRef.current.classList.add("nav-scrolled");
+        } else {
+          navRef.current.classList.remove("nav-scrolled");
+        }
       }
-    })
-  },[])
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [userControlOpen, setUserControlOpen] = useState(false);
@@ -31,11 +41,7 @@ export default function Navbar() {
     e.preventDefault();
     setUserControlOpen(!userControlOpen);
   };
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    // Perform logout logic here if any
-    navigate('/login');
-  };
+  
   return (
     <nav ref={navRef} className="fixed z-10 nav-scrolled top-0 left-0 right-0 text-slate-50 text-xs xsm:text-sm sm:text-base flex justify-between items-center w-screen mx-auto p-4 sm:p-8">
       <div className="relative flex justify-start items-center pr-8">
@@ -133,7 +139,7 @@ export default function Navbar() {
               <img src={setting_icon} alt="" className="w-3 sm:w-4" />
               <p className="nav-link">Settings</p>
             </a>
-            <p onClick={handleLogout} className="cursor-pointer nav-link py-0.25 py-0.25 lg:py-1 xl:py-2">
+            <p onClick={logout} className="cursor-pointer nav-link py-0.25 py-0.25 lg:py-1 xl:py-2">
               Log Out
             </p>
           </div>) : null}
